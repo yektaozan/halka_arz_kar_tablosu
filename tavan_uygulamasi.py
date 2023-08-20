@@ -23,7 +23,6 @@ def daily_profit(current_price, previous_price, lot_count):
 def total_profit(current_price, initial_price, lot_count):
     return (current_price - initial_price) * lot_count
 
-@st.cache_data
 def simulate_trades(days, initial_price, lot_count):
     df = pd.DataFrame(columns=['tavan_sayisi', 'tavan_fiyati', 'gunluk_kar', 'toplam_kar'])
     previous_price = 0
