@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import warnings
 import streamlit as st
+from PIL import Image
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def round_price_step(x):
