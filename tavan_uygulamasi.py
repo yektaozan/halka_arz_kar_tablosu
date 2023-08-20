@@ -44,7 +44,10 @@ def simulate_trades(days, initial_price, lot_count):
     return df
 
 def main():
+    img = Image.open("akinci_yatirim.png").resize((200, 200))
     st.title('Halka Arz Tavan Uygulaması')
+    with st.columns(3)[1]:
+        st.image(img)
     st.markdown('''
     Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
     ''')
