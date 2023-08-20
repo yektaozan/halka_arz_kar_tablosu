@@ -39,12 +39,7 @@ def simulate_trades(days, initial_price, lot_count):
         daily_profit_value = daily_profit(current_price, previous_price, lot_count)
         total_profit_value = total_profit(current_price, initial_price, lot_count)
 
-        df = df.append({
-            'tavan_sayisi': i + 1,
-            'tavan_fiyati': current_price,
-            'gunluk_kar': daily_profit_value,
-            'toplam_kar': total_profit_value
-        }, ignore_index=True)
+        df.loc[len(df.index)] = [i+1, current_price, daily_profit_value, total_profit_value]
 
     return df
 
