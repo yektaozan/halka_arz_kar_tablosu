@@ -49,7 +49,7 @@ def main():
     Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
     ''')
 
-    initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.01)
+    initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
     lot_count = st.number_input('Lot miktarı', value=10, step=1)
     days = st.number_input('Gün sayısı', value=10, step=1)
 
