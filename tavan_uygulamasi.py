@@ -114,20 +114,19 @@ def calc_profit_page():
                                     'Toplam Kar Yüzdesi', format= '%.2f %%')}
                                 )
 
-def main():
-    img = Image.open("akinci_yatirim.png").resize((200, 200))
-    st.title('Halka Arz Tavan Uygulaması')
-    with st.columns(3)[1]:
-        st.image(img)
-    st.markdown('''
-    Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
-    ''')
-    tab1, tab2 = st.tabs(['Kar Hesapla', 'Lot ve Bütçe Hesapla'])
-    with tab1:
-        calc_profit_page()
-    with tab2:
-        calc_lot_budget_page()
 
-if __name__ == '__main__':
-    main()
+img = Image.open("akinci_yatirim.png").resize((200, 200))
+st.title('Halka Arz Tavan Uygulaması')
+with st.columns(3)[1]:
+    st.image(img)
+
+st.markdown('''
+Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
+''')
+
+tab1, tab2 = st.tabs(['Kar Hesapla', 'Lot ve Bütçe Hesapla'])
+with tab1:
+    calc_profit_page()
+with tab2:
+    calc_lot_budget_page()
 
