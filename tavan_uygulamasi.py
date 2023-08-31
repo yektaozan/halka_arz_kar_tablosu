@@ -68,7 +68,7 @@ def main():
                                 'toplam_kar': st.column_config.NumberColumn(
                                     'Toplam Kar', format= '%.2f ₺'),
                                 'toplam_kar_yuzdesi': st.column_config.NumberColumn(
-                                    'Toplam Kar Yüzdesi', format= '%.2f %%')}
+                                    'Toplam Kar Yüzdesi', format= '%.2f %')}
                                 )
 
 if __name__ == '__main__':
