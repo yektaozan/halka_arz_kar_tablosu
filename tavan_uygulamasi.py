@@ -74,8 +74,8 @@ def calculate_lot_count_and_budget(initial_price, number_of_lots):
             lower_lot_count = np.floor(lot_for_each_participant)
             upper_lot_budget = upper_lot_count * initial_price
             lower_lot_budget = lower_lot_count * initial_price
-            lot_count = f'{str(lower_lot_count)} lot - {str(upper_lot_count)} lot arası'
-            budget = f'{str(lower_lot_budget)} ₺ - {str(upper_lot_budget)} ₺ arası'
+            lot_count = f'{int(lower_lot_count)} lot - {int(upper_lot_count)} lot arası'
+            budget = f'{int(lower_lot_budget)} ₺ - {int(upper_lot_budget)} ₺ arası'
         else:
             lot_count = f'{lot_for_each_participant} lot'
             budget = f'{lot_for_each_participant * initial_price} ₺'
