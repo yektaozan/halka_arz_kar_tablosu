@@ -15,6 +15,24 @@ def round_price_step(x):
     else:
         return np.floor(x * 10) / 10
 
+def round_price_step_update(x):
+    if x < 20:
+        return np.floor(x * 100) / 100
+    elif x < 50:
+        return np.floor(x * 50) / 50
+    elif x < 100:
+        return np.floor(x * 20) / 20
+    elif x < 250:
+        return np.floor(x * 10) / 10
+    elif x < 500:
+        return np.floor(x * 4) / 4
+    elif x < 1000:
+        return np.floor(x * 2) / 2
+    elif x < 2500:
+        return int(x)
+    else:
+        return x - (x % 2.5)
+    
 def add_ceiling(x):
     return x * 1.1
 
