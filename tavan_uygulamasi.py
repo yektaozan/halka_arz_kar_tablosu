@@ -88,7 +88,7 @@ def calculate_lot_count_and_budget(initial_price, number_of_lots):
     return df
 
 def calc_lot_budget_page():
-    starting_price = st.number_input('Başlangıç fiyatını giriniz.', value=10.0, step=0.2)
+    starting_price = st.number_input('Halka arz fiyatını giriniz.', value=10.0, step=0.2)
     number_of_lots = st.number_input('Toplam lot sayısını giriniz.', value=5000000, step=50000)
 
     df = calculate_lot_count_and_budget(starting_price, number_of_lots)
