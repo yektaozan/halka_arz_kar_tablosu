@@ -121,9 +121,7 @@ def calc_profit_page():
 def main():
 #    st.title('Halka Arz Tavan Uygulaması')
 
-    img = Image.open("halka_arz_logo.png").resize((400, 200))
-#    with st.columns(3)[1]:
-#    st.image(img)
+    img = Image.open("halka_arz_logo.png").resize((300, 150))
     col1, col2, col3 = st.columns([0.2, 5, 0.2])
     col2.image(img, use_column_width=True)
 
