@@ -128,7 +128,7 @@ def main():
    
 
     st.markdown('''
-    Bu uygulama, halka arz hisse senedi alım-satımı yapmak isteyenler için halka arz tavan fiyatı uygulamasını simüle etmek ve kar hesaplamaları yapmak için hazırlanmıştır. Uygulama, halka arz tavan fiyatı uygulamasının yatırımcılar tarafından nasıl algılandığını göstermek amacıyla hazırlanmıştır. Uygulamada yer alan hesaplamaların doğruluğu garanti edilmemektedir.
+    Bu uygulama, halka arz hisse senedi alım-satımı yapmak isteyenler için halka arz tavan fiyatı uygulamasını simüle etmek ve kar hesaplamaları yapmak için hazırlanmıştır. Uygulamada yer alan hesaplamaların doğruluğu garanti edilmemektedir.
     ''')
 
     tab1, tab2 = st.tabs(['Kar Hesapla', 'Lot ve Bütçe Hesapla'])
