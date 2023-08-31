@@ -122,13 +122,17 @@ def main():
 #    st.title('Halka Arz Tavan Uygulaması')
 
     img = Image.open("halka_arz_logo.png")
-    col1, col2, col3 = st.columns([0.3, 4, 0.3])
+    col1, col2, col3 = st.columns([0.2, 3, 0.2])
     col2.image(img, use_column_width=True)
 
    
 
     st.markdown('''
-    Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
+    Bu uygulama, halka arz hisse senedi alım-satımı yapmak isteyenler için
+    halka arz tavan fiyatı uygulamasını simüle etmek ve kar hesaplamaları yapmak
+    için hazırlanmıştır. Uygulama, halka arz tavan fiyatı uygulamasının
+    yatırımcılar tarafından nasıl algılandığını göstermek amacıyla hazırlanmıştır.
+    Uygulamada yer alan hesaplamaların doğruluğu garanti edilmemektedir.
     ''')
 
     tab1, tab2 = st.tabs(['Kar Hesapla', 'Lot ve Bütçe Hesapla'])
