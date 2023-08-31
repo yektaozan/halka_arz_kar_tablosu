@@ -80,8 +80,8 @@ def calculate_lot_count_and_budget(initial_price, number_of_lots):
             lot_count = f'{int(lower_lot_count)} lot - {int(upper_lot_count)} lot arası'
             budget = f'{int(lower_lot_budget)} ₺ - {int(upper_lot_budget)} ₺ arası'
         else:
-            lot_count = f'{lot_for_each_participant} lot'
-            budget = f'{lot_for_each_participant * initial_price} ₺'
+            lot_count = f'{int(lot_for_each_participant)} lot'
+            budget = f'{int(lot_for_each_participant * initial_price)} ₺'
    
         df.loc[len(df.index)] = [f'{number_of_parts[idx]} kişi', lot_count, budget]
     
