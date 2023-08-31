@@ -64,11 +64,14 @@ def simulate_trades(days, initial_price, lot_count):
     return df
 
 def calculate_lot_count_and_budget(initial_price, number_of_lots):
-    number_of_participants = [1000000, 1500000, 2000000, 2200000, 2500000]
+    number_of_participants = [1000000, 1200000, 1500000, 1700000, 
+                              2000000, 2100000, 2200000, 2400000, 2500000]
+    number_of_parts = ['1 milyon', '1.2 milyon', '1.5 milyon', '1.7 milyon',
+                       '2 milyon', '2.1 milyon', '2.2 milyon', '2.4 milyon', '2.5 milyon']
     df = pd.DataFrame(columns=['number_of_participants', 'lot_count', 'budget'])
 
-    for i in number_of_participants:
-        lot_for_each_participant = number_of_lots / i
+    for idx, num in enumerate(number_of_participants):
+        lot_for_each_participant = number_of_lots / num
         if lot_for_each_participant % 1 != 0:
             upper_lot_count = np.ceil(lot_for_each_participant)
             lower_lot_count = np.floor(lot_for_each_participant)
@@ -80,7 +83,7 @@ def calculate_lot_count_and_budget(initial_price, number_of_lots):
             lot_count = f'{lot_for_each_participant} lot'
             budget = f'{lot_for_each_participant * initial_price} ₺'
    
-        df.loc[len(df.index)] = [f'{str(i)} kişi', lot_count, budget]
+        df.loc[len(df.index)] = [f'{number_of_parts[idx]} kişi', lot_count, budget]
     
     return df
 
