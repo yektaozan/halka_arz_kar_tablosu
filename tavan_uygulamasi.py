@@ -97,11 +97,11 @@ def calc_lot_budget_page():
                                 )
 
 def calc_profit_page():
-    initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
+    initial_price_ = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
     lot_count = st.number_input('Lot miktarı', value=10, step=1)
     days = st.number_input('Gün sayısı', value=10, step=1)
 
-    df = simulate_trades(days, initial_price, lot_count)
+    df = simulate_trades(days, initial_price_, lot_count)
 
     st.dataframe(df, use_container_width=True, hide_index=True,
                  column_config={'tavan_sayisi': 'Tavan Sayısı',
