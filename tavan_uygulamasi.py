@@ -137,5 +137,8 @@ def main():
     with tab2:
         calc_lot_budget_page()
 
+    img2 = Image.open("akinci_yatirim.png").resize((100,100))
+    st.image(img2, caption='Bu uygulama Akıncı Yatırım tarafından hazırlanmıştır.')
+
 if __name__ == "__main__":
     main()
