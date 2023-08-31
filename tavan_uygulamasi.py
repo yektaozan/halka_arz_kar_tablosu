@@ -122,7 +122,7 @@ def main():
 #    st.title('Halka Arz Tavan Uygulaması')
 
     img = Image.open("halka_arz_logo.png")
-    col1, col2, col3 = st.columns([0.1, 2, 0.1])
+    col1, col2, col3 = st.columns([0.1, 1, 0.1])
     col2.image(img, use_column_width=True)
 
    
