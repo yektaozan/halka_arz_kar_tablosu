@@ -124,16 +124,10 @@ def main():
     img = Image.open("halka_arz_logo.png").resize((400, 200))
 #    with st.columns(3)[1]:
 #    st.image(img)
-    col1, col2, col3 = st.beta_columns([1,6,1])
+    col1, col2, col3 = st.columns([0.2, 5, 0.2])
+    col2.image(img, use_column_width=True)
 
-    with col1:
-        st.write("")
-    
-    with col2:
-        st.image(img)
-
-    with col3:
-        st.write("")    
+   
 
     st.markdown('''
     Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
