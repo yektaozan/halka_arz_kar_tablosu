@@ -63,15 +63,40 @@ def simulate_trades(days, initial_price, lot_count):
 
     return df
 
-def main():
-    img = Image.open("akinci_yatirim.png").resize((200, 200))
-    st.title('Halka Arz Tavan Uygulaması')
-    with st.columns(3)[1]:
-        st.image(img)
-    st.markdown('''
-    Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
-    ''')
+def calculate_lot_count_and_budget(initial_price, number_of_lots):
+    number_of_participants = [1000000, 1500000, 2000000, 2200000, 2500000]
+    df = pd.DataFrame(columns=['number_of_participants', 'lot_count', 'budget'])
 
+    for i in number_of_participants:
+        lot_for_each_participant = number_of_lots / i
+        if lot_for_each_participant % 1 != 0:
+            upper_lot_count = np.ceil(lot_for_each_participant)
+            lower_lot_count = np.floor(lot_for_each_participant)
+            upper_lot_budget = upper_lot_count * initial_price
+            lower_lot_budget = lower_lot_count * initial_price
+            lot_count = f'{lower_lot_count} lot - {upper_lot_count} lot arası'
+            budget = f'{lower_lot_budget} ₺ - {upper_lot_budget} ₺ arası'
+        else:
+            lot_count = f'{lot_for_each_participant} lot'
+            budget = f'{lot_for_each_participant * initial_price} ₺'
+   
+        df.loc[len(df.index)] = [f'{str(i)} kişi', lot_count, budget]
+    
+    return df
+
+def calc_lot_budget_page():
+    initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
+    number_of_lots = st.number_input('Lot miktarı', value=5000000, step=50000)
+
+    df = calculate_lot_count_and_budget(initial_price, number_of_lots)
+
+    st.dataframe(df, use_container_width=True, hide_index=True,
+                 column_config={'number_of_participants': 'Katılımcı Sayısı',
+                                'lot_count': 'Lot Sayısı',
+                                'budget': 'Bütçe'}
+                                )
+
+def calc_profit_page():
     initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
     lot_count = st.number_input('Lot miktarı', value=10, step=1)
     days = st.number_input('Gün sayısı', value=10, step=1)
@@ -88,6 +113,20 @@ def main():
                                 'toplam_kar_yuzdesi': st.column_config.NumberColumn(
                                     'Toplam Kar Yüzdesi', format= '%.2f %%')}
                                 )
+
+def main():
+    img = Image.open("akinci_yatirim.png").resize((200, 200))
+    st.title('Halka Arz Tavan Uygulaması')
+    with st.columns(3)[1]:
+        st.image(img)
+    st.markdown('''
+    Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
+    ''')
+    tab1, tab2 = st.tabs(['Kar Hesapla', 'Lot ve Bütçe Hesapla'])
+    with tab1:
+        calc_profit_page()
+    with tab2:
+        calc_lot_budget_page()
 
 if __name__ == '__main__':
     main()
