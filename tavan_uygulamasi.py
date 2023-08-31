@@ -85,10 +85,10 @@ def calculate_lot_count_and_budget(initial_price, number_of_lots):
     return df
 
 def calc_lot_budget_page():
-    initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
-    number_of_lots = st.number_input('Lot miktarı', value=5000000, step=50000)
+    starting_price = st.number_input('Başlangıç fiyatını giriniz.', value=10.0, step=0.2)
+    number_of_lots = st.number_input('Toplam lot sayısını giriniz.', value=5000000, step=50000)
 
-    df = calculate_lot_count_and_budget(initial_price, number_of_lots)
+    df = calculate_lot_count_and_budget(starting_price, number_of_lots)
 
     st.dataframe(df, use_container_width=True, hide_index=True,
                  column_config={'number_of_participants': 'Katılımcı Sayısı',
@@ -97,11 +97,11 @@ def calc_lot_budget_page():
                                 )
 
 def calc_profit_page():
-    initial_price_ = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
+    initial_price = st.number_input('Başlangıç fiyatı', value=10.0, step=0.2)
     lot_count = st.number_input('Lot miktarı', value=10, step=1)
     days = st.number_input('Gün sayısı', value=10, step=1)
 
-    df = simulate_trades(days, initial_price_, lot_count)
+    df = simulate_trades(days, initial_price, lot_count)
 
     st.dataframe(df, use_container_width=True, hide_index=True,
                  column_config={'tavan_sayisi': 'Tavan Sayısı',
