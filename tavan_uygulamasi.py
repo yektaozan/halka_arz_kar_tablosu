@@ -25,7 +25,7 @@ def total_profit(current_price, initial_price, lot_count):
     return (current_price - initial_price) * lot_count
 
 def simulate_trades(days, initial_price, lot_count):
-    df = pd.DataFrame(columns=['tavan_sayisi', 'tavan_fiyati', 'gunluk_kar', 'toplam_kar'])
+    df = pd.DataFrame(columns=['tavan_sayisi', 'tavan_fiyati', 'gunluk_kar', 'toplam_kar', 'toplam_kar_yuzdesi'])
     previous_price = 0
     current_price = 0
 
@@ -39,8 +39,9 @@ def simulate_trades(days, initial_price, lot_count):
 
         daily_profit_value = daily_profit(current_price, previous_price, lot_count)
         total_profit_value = total_profit(current_price, initial_price, lot_count)
+        total_profit_percentage = total_profit_value / (initial_price * lot_count) * 100
 
-        df.loc[len(df.index)] = [i+1, current_price, daily_profit_value, total_profit_value]
+        df.loc[len(df.index)] = [i+1, current_price, daily_profit_value, total_profit_value, total_profit_percentage]
 
     return df
 
