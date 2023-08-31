@@ -119,11 +119,11 @@ def calc_profit_page():
 
 
 def main():
-    st.title('Halka Arz Tavan Uygulaması')
+#    st.title('Halka Arz Tavan Uygulaması')
 
-    img = Image.open("halka_arz_logo.png").resize((800, 300))
-    with st.columns(3)[1]:
-        st.image(img)
+    img = Image.open("halka_arz_logo.png").resize((400, 200))
+#    with st.columns(3)[1]:
+    st.image(img)
 
     st.markdown('''
     Bu uygulama, halka arz hisse senedi alım-satımında tavan uygulamasının karlılığını göstermektedir.
