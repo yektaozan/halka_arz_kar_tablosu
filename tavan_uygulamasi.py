@@ -65,7 +65,7 @@ def simulate_trades(days, initial_price, lot_count):
 
 def calculate_lot_count_and_budget(initial_price, number_of_lots):
     number_of_participants = [1000000, 1200000, 1500000, 1700000, 
-                              2000000, 2100000, 2200000, 2400000, 2500000]
+                              2000000, 2100000, 2200000, 2400000, 2500000, 3000000, 3500000, 3700000, 4000000]
     number_of_parts = ['1 milyon', '1.2 milyon', '1.5 milyon', '1.7 milyon',
                        '2 milyon', '2.1 milyon', '2.2 milyon', '2.4 milyon', '2.5 milyon']
     df = pd.DataFrame(columns=['number_of_participants', 'lot_count', 'budget'])
