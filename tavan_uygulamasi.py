@@ -49,11 +49,11 @@ def simulate_trades(days, initial_price, lot_count):
 
     for i in range(days):
         if current_price == 0:
-            current_price = round_price_step(add_ceiling(initial_price))
+            current_price = round_price_step_update(add_ceiling(initial_price))
             previous_price = initial_price
         else:
             previous_price = current_price
-            current_price = round_price_step(add_ceiling(current_price))
+            current_price = round_price_step_update(add_ceiling(current_price))
 
         daily_profit_value = daily_profit(current_price, previous_price, lot_count)
         total_profit_value = total_profit(current_price, initial_price, lot_count)
